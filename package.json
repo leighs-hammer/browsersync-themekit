@@ -1,10 +1,10 @@
 {
-  "name": "themekit-browsersync-cli",
-  "version": "0.0.1",
-  "description": "A small cli to surface a browsersync start to link to a previewed them from themekit",
+  "name": "browsersync-themekit",
+  "version": "0.0.7",
+  "description": "WIP: A small cli to surface a browsersync start to link to a previewed theme from themekit into a shopify store",
   "main": "./bin/index.js",
   "bin": {
-    "themekit-browsersync": "./bin/index.js"
+    "browsersync-themekit": "./bin/index.js"
   },
   "directories": {
     "lib": "lib",
@@ -30,6 +30,5 @@
     "nodemon": "^2.0.4"
   },
   "peerDependencies": {
-    "browser-sync": "^2.26.12"
   }
 }

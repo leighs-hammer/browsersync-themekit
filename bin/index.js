@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const { exec, execSync } = require('child_process')
 const path = require('path')
 const fs = require('fs')
@@ -6,8 +8,9 @@ const inquirer = require('inquirer')
 
 const {argv} = require('yargs')
 const startBrowserSync = require('../lib/bs')
-const configPath = path.resolve('./browsersync-themekit-config.json')
-const packageName = "browsersync-themekit-cli"
+const CONSTANTS = require('../constants')
+const configPath = path.resolve(CONSTANTS.filePath)
+const packageName = CONSTANTS.packageName
 
 // run enquirer and write a config
 if(argv && (argv.new || argv.n)) {
@@ -16,6 +19,8 @@ if(argv && (argv.new || argv.n)) {
     console.log(chalk.red(`
     A config file exists please edit the file rather than creating a new one :) 
     ${chalk.blue(configPath)}
+
+    Run ' ${CONSTANTS.packageName} -h ' for help
     `))
     return null
   }
@@ -81,7 +86,7 @@ if(argv && (argv.new || argv.n)) {
 
   ]
 
-  inquirer.prompt(setupQuestions)
+  return inquirer.prompt(setupQuestions)
     .then(a => {
       fs.writeFileSync(configPath, 
         JSON.stringify(a, null, 2)
@@ -93,6 +98,7 @@ if(argv && (argv.new || argv.n)) {
         Config file written successfully: 
         ${chalk.blue(configPath)}
         Edit this file to amend any of the config you may require
+
         
         !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         `)}
@@ -118,7 +124,7 @@ if(argv && (argv.new || argv.n)) {
 if(argv && (argv.config || argv.c)) {
   
   if(fs.existsSync(configPath)) {
-    startBrowserSync()
+    return startBrowserSync()
   } else {
     console.log(chalk.red(`!!!!!!!!!!!!!!!!!!!!! Browser Sync Config Error !!!!!!!!!!!!!!!!!!!`))
     console.log(`
@@ -131,14 +137,25 @@ if(argv && (argv.config || argv.c)) {
     
     alternately run '${chalk.black.bgCyan(` ${packageName } -e `)}' to use your ${chalk.blue('.env')}
     
+    Run ' ${CONSTANTS.packageName} -h ' for help
     `)
-    console.log(chalk.red(`!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!`))
+    return console.log(chalk.red(`!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!`))
   }
 }
 
-// run using .env
-if(argv && (argv.env || argv.e)) {
-  // Check env
+// no arguments
+if(argv && (argv.help || argv.h)) {
+  console.log(`
+  ${chalk.blue('|||============================ HELP =============================|||')}
+  
+  You can create a new config or start browsersync
+  
+  ${CONSTANTS.packageName} -n  OR --new ( Creates a new config file )
+  ${CONSTANTS.packageName} -c OR --config ( Start browsersync using the configuration)
+  
+  ${chalk.blue('|||===============================================================|||')}
+  
+  `)
 }
-// default
 
+return startBrowserSync()
