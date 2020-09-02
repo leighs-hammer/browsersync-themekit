@@ -1,3 +1,5 @@
+[![Known Vulnerabilities](https://snyk.io/test/github/leighs-hammer/browsersync-themekit/badge.svg?targetFile=package.json)](https://snyk.io/test/github/leighs-hammer/browsersync-themekit?targetFile=package.json)
+
 ## NOTES: 
 
 1. This package is not supported by either Shopify or Browser-sync this is purely a helper for people needing livereload while developing shopify themes. 
