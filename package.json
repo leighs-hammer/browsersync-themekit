@@ -1,7 +1,7 @@
 {
   "name": "browsersync-themekit",
-  "version": "0.0.7",
-  "description": "WIP: A small cli to surface a browsersync start to link to a previewed theme from themekit into a shopify store",
+  "version": "0.0.10",
+  "description": "A small cli to surface a browsersync start to link to a previewed theme from themekit into a shopify store",
   "main": "./bin/index.js",
   "bin": {
     "browsersync-themekit": "./bin/index.js"

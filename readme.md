@@ -1,6 +1,6 @@
 ## NOTES: 
 
-1. This package is not supported by either Shopify or Browser-sync this is purelyt a helper for people needing livereload while developing shopify themes. 
+1. This package is not supported by either Shopify or Browser-sync this is purely a helper for people needing livereload while developing shopify themes. 
 2. This package has browsersync as a dependency not a peer dependency, this is to allow running via `npx`
 
 # TLDR
@@ -51,3 +51,7 @@ However you are likely to want to link this up with other scripts, such as your 
 I would achieve this withe the help of: [npm run all](https://www.npmjs.com/package/npm-run-all)
 
 
+## Roadmap (stuff I am lookign at)
+
+1. Extend the cli to allow values to be surfaced from .env files
+2. Extend cli with additional flags for shop and theme id
