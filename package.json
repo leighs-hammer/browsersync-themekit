@@ -1,0 +1,35 @@
+{
+  "name": "themekit-browsersync-cli",
+  "version": "0.0.1",
+  "description": "A small cli to surface a browsersync start to link to a previewed them from themekit",
+  "main": "./bin/index.js",
+  "bin": {
+    "themekit-browsersync": "./bin/index.js"
+  },
+  "directories": {
+    "lib": "lib",
+    "bin": "bin"
+  },
+  "scripts": {
+    "publish:package": ""
+  },
+  "keywords": [
+    "browsersync",
+    "shopify",
+    "themekit"
+  ],
+  "author": "leighbarnes",
+  "license": "MIT",
+  "dependencies": {
+    "browser-sync": "^2.26.12",
+    "chalk": "^4.1.0",
+    "inquirer": "^7.3.3",
+    "yargs": "^15.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "peerDependencies": {
+    "browser-sync": "^2.26.12"
+  }
+}
