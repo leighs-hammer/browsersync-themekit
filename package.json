@@ -21,10 +21,10 @@
   "author": "leighbarnes",
   "license": "MIT",
   "dependencies": {
-    "browser-sync": "^2.26.12",
+    "browser-sync": "^3.0.0",
     "chalk": "^4.1.0",
-    "inquirer": "^7.3.3",
-    "yargs": "^15.4.1"
+    "inquirer": "^9.0.0",
+    "yargs": "^17.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
